@@ -1,6 +1,8 @@
 package Utility
 
-import "unsafe"
+import (
+	"unsafe"
+)
 
 // FastStrAtoi converts a string to an integer quickly.
 func FastStrAtoi(s string) int {
@@ -45,4 +47,22 @@ func itoa(i int) []byte {
 func FastIntToStr(i int) string {
 	bytes := itoa(i)
 	return *(*string)(unsafe.Pointer(&bytes)) // Convert bytes to string without copying
+}
+
+func Contain(s []int, str int) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func IntSliceToStrSlice(s []int) []string {
+	var res []string
+	for _, v := range s {
+		res = append(res, FastIntToStr(v))
+	}
+	return res
 }

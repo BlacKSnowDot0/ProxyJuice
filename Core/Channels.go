@@ -27,7 +27,7 @@ func SuccessChannelHandler() {
 
 		Utility.AppendToFile(OutputFile, str.String()+"\n")
 
-		LogChannel <- &JuicyLog{Message: fmt.Sprintf("Proxy Detected: %s", str.String()), Level: SUCCESS, Sender: "Core.SuccessChannelHandler"}
+		LogChannel <- &JuicyLog{Message: fmt.Sprintf("Proxy Detected: %s", str.String()), Level: SUCCESS, Sender: "Checker.Check"}
 	}
 }
 
